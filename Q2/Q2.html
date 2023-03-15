@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Q2</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			font-family: Calibri, sans-serif;
+			background-color: #F8F8FF;
+		}
+		textarea {
+			width: 50%;
+			height: 150px;
+			font-size: 16px;
+			padding: 10px;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.char-count {
+			background-color: #cb87eb;
+			padding: 20px;
+			border-radius: 10px;
+			color: white;
+			font-size: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="char-count" id="char-count"></div>
+	<textarea id="textarea" onkeyup="countCharacters()" placeholder="Digite aqui"></textarea>
+
+	<script>
+		function countCharacters() {
+			const textarea = document.getElementById('textarea');
+			const charCount = document.getElementById('char-count');
+			charCount.innerText = `Caracteres digitados: ${textarea.value.length}`;
+		}
+	</script>
+</body>
+</html>

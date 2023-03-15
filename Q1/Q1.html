@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q1</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .password-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .password-button {
+            width: 100%;
+            padding: 8px 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .password-box.yellow-bg {
+            background-color: yellow;
+        }
+
+        .password-label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="password-box">
+        <label for="password" class="password-label">Senha:</label>
+        <input type="password" id="password" class="password-input" onkeyup="checkPasswordStrength()">
+        <button class="password-button" onclick="checkPassword()">Entrar</button>
+    </div>
+    <script>
+        const passwordBox = document.querySelector('.password-box');
+        const passwordInput = document.getElementById('password');
+
+        function checkPassword() {
+            const password = passwordInput.value;
+            if (password === "senha123") {
+                alert("Senha correta!");
+            } else {
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+
+        function checkPasswordStrength() {
+            const password = passwordInput.value;
+            const passwordRegex = /^(?=.*[0-9])(?=.{6,})/;
+            if (passwordRegex.test(password)) {
+                passwordBox.classList.add('yellow-bg');
+            } else {
+                passwordBox.classList.remove('yellow-bg');
+            }
+        }
+    </script>
+</body>
+
+</html>
